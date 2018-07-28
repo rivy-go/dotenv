@@ -1,4 +1,4 @@
-package godotenv
+package dotenv
 
 import (
 	"bytes"

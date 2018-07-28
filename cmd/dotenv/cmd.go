@@ -7,7 +7,7 @@ import (
 
 	"strings"
 
-	"github.com/joho/godotenv"
+	"github.com/rivy-go/dotenv"
 )
 
 func main() {
@@ -21,13 +21,13 @@ func main() {
 	usage := `
 Run a process with a env setup from a .env file
 
-godotenv [-f ENV_FILE_PATHS] COMMAND_ARGS
+dotenv [-f ENV_FILE_PATHS] COMMAND_ARGS
 
 ENV_FILE_PATHS: comma separated paths to .env files
 COMMAND_ARGS: command and args you want to run
 
 example
-  godotenv -f /path/to/something/.env,/another/path/.env fortune
+  dotenv -f /path/to/something/.env,/another/path/.env fortune
 `
 	// if no args or -h flag
 	// print usage and return
@@ -47,7 +47,7 @@ example
 	cmd := args[0]
 	cmdArgs := args[1:]
 
-	err := godotenv.Exec(envFilenames, cmd, cmdArgs)
+	err := dotenv.Exec(envFilenames, cmd, cmdArgs)
 	if err != nil {
 		log.Fatal(err)
 	}
